@@ -9,7 +9,7 @@ const Routes: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/create_point" exact component={CreatePoint} />
+        <Route path="/cadastro" component={CreatePoint} />
       </Switch>
     </BrowserRouter>
   );
