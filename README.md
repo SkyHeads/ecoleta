@@ -28,7 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Typescript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Knex.js](http://knexjs.org/)
-- [React](https://reactjs.org)
+- [ReactJS](https://reactjs.org)
 - [React Native](https://facebook.github.io/react-native/)
 
 ## :memo: License
