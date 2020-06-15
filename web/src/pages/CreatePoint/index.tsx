@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import {TileLayer, Map, Marker} from 'react-leaflet';
+import api from '../../services/api';
 
 import './styles.css';
 
 import logo from '../../assets/logo.svg';
 
+interface Item {
+  id: number;
+  name: string;
+  image_url: string;
+}
+
 const CreatePoint: React.FC = () => {
+  const [items, setItems] = useState<Item[]>([]);
+
+  async function loadItems() {
+    const response = await api.get('items');
+    setItems(response.data);
+  }
+
+  useEffect(() => {
+    loadItems();
+  }, []);
+
   return (
     <div id="page-create-point">
       <header>
@@ -93,30 +111,12 @@ const CreatePoint: React.FC = () => {
             <span>Selecione um ou mais itens abaixo</span>
           </legend>
           <ul className="items-grid">
-            <li>
-              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
-              <span>Oléo de cozinha</span>
+            {items.map(item => (
+              <li key={item.id}>
+                <img src={item.image_url} alt={item.name} />
+                <span>{item.name}</span>
             </li>
-            <li className="selected">
-              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
-              <span>Oléo de cozinha</span>
-            </li>
-            <li>
-              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
-              <span>Oléo de cozinha</span>
-            </li>
-            <li>
-              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
-              <span>Oléo de cozinha</span>
-            </li>
-            <li>
-              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
-              <span>Oléo de cozinha</span>
-            </li>
-            <li>
-              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
-              <span>Oléo de cozinha</span>
-            </li>
+            ))}
           </ul>
         </fieldset>
 
