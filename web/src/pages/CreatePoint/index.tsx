@@ -82,7 +82,37 @@ const CreatePoint: React.FC = () => {
             <h2>Ítens de coleta</h2>
             <span>Selecione um ou mais itens abaixo</span>
           </legend>
+          <ul className="items-grid">
+            <li>
+              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
+              <span>Oléo de cozinha</span>
+            </li>
+            <li className="selected">
+              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
+              <span>Oléo de cozinha</span>
+            </li>
+            <li>
+              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
+              <span>Oléo de cozinha</span>
+            </li>
+            <li>
+              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
+              <span>Oléo de cozinha</span>
+            </li>
+            <li>
+              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
+              <span>Oléo de cozinha</span>
+            </li>
+            <li>
+              <img src="http://localhost:3333/uploads/oleo.svg" alt="Teste"/>
+              <span>Oléo de cozinha</span>
+            </li>
+          </ul>
         </fieldset>
+
+        <button type="submit">
+          Cadastrar ponto de coleta
+        </button>
       </form>
     </div>
   );
