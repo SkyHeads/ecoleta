@@ -32,10 +32,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native](https://facebook.github.io/react-native/)
 - [Expo](https://expo.io/)
 
-## :memo: License
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
-
 ---
 
 <h4 align="center">
