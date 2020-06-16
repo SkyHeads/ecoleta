@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Image } from 'react-native';
 
 const Home: React.FC = () => {
   return (
-    <Text>Home</Text>
+    <View>
+      <Image source={require('../../assets/logo.png')} />
+    </View>
   );
 };
 
