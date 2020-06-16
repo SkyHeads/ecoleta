@@ -37,6 +37,8 @@ const CreatePoint: React.FC = () => {
     whatsapp: '',
   });
 
+
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
   const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
 
@@ -100,6 +102,10 @@ const CreatePoint: React.FC = () => {
     const { name, value } = event.target;
 
     setFormData({ ...formData, [name]: value });
+  }
+
+  function handleSelectItem(id: number) {
+    setSelectedItems([...selectedItems, id]);
   }
   
   return (
@@ -209,12 +215,17 @@ const CreatePoint: React.FC = () => {
             <h2>Ítens de coleta</h2>
             <span>Selecione um ou mais itens abaixo</span>
           </legend>
-          <ul className="items-grid">
-            {items.map(item => (
-              <li key={item.id}>
-                <img src={item.image_url} alt={item.name} />
-                <span>{item.name}</span>
-            </li>
+
+            <ul className="items-grid">
+              {items.map(item => (
+                <li 
+                  key={item.id} 
+                  onClick={() => handleSelectItem(item.id)}
+                  className={selectedItems.includes(item.id) ? 'selected' : ''}
+                >
+                  <img src={item.image_url} alt={item.name} />
+                  <span>{item.name}</span>
+              </li>
             ))}
           </ul>
         </fieldset>
