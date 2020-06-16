@@ -30,6 +30,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Knex.js](http://knexjs.org/)
 - [ReactJS](https://reactjs.org)
 - [React Native](https://facebook.github.io/react-native/)
+- [Expo](https://expo.io/)
 
 ## :memo: License
 
