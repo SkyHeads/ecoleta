@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent, FormEvent } from 'react';
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import {TileLayer, Map, Marker} from 'react-leaflet';
@@ -30,12 +30,22 @@ const CreatePoint: React.FC = () => {
   const [selectedUf, setSelectedUf] = useState('0');
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('0');
+
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
+  const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
 
   async function loadItems() {
     const response = await api.get('items');
     setItems(response.data);
   }
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+
+      setInitialPosition([latitude, longitude]);
+    });
+  }, []);
 
   useEffect(() => {
     loadItems();
@@ -133,8 +143,12 @@ const CreatePoint: React.FC = () => {
             <h2>Endereço</h2>
             <span>Selecione o endereço no mapa</span>
           </legend>
+          
+          {/* 
+            [-23.6265595, -46.5072322] or initialPosition
+          */}
 
-          <Map center={[-23.6299135, -46.5174528]} zoom={15} onClick={handleClickMap}>
+          <Map center={[-23.6265595, -46.5072322]} zoom={15} onClick={handleClickMap}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
