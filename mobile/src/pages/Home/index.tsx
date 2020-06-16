@@ -3,7 +3,7 @@ import { View, Image, StyleSheet } from 'react-native';
 
 const Home: React.FC = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Image source={require('../../assets/logo.png')} />
     </View>
   );
