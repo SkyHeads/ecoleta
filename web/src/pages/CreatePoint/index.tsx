@@ -31,6 +31,12 @@ const CreatePoint: React.FC = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('0');
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    whatsapp: '',
+  });
+
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
   const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
 
@@ -90,6 +96,12 @@ const CreatePoint: React.FC = () => {
     ])
   }
 
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+
+    setFormData({ ...formData, [name]: value });
+  }
+  
   return (
     <div id="page-create-point">
       <header>
@@ -115,6 +127,7 @@ const CreatePoint: React.FC = () => {
               type="text"
               name="name"
               id="name"
+              onChange={handleInputChange}
             />
           </div>
 
@@ -125,6 +138,7 @@ const CreatePoint: React.FC = () => {
                 type="email"
                 name="email"
                 id="email"
+                onChange={handleInputChange}
               />
             </div>
             <div className="field">
@@ -133,6 +147,7 @@ const CreatePoint: React.FC = () => {
                 type="text"
                 name="whatsapp"
                 id="whatsapp"
+                onChange={handleInputChange}
               />
             </div>
           </div>
