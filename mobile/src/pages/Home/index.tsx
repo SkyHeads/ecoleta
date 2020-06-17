@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
 
 const Home: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/logo.png')} />
+      <View style={styles.main}>
+        <Image source={require('../../assets/logo.png')} />
+        <Text style={styles.title}>Seu Marketplace de coleta de resíduos</Text>
+        <Text style={styles.description}>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente</Text>
+      </View>
     </View>
   );
 };
