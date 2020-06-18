@@ -1,8 +1,9 @@
 import React from 'react';
-import { Feather as Icon } from '@expo/vector-icons';
+import { Feather as Icon, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, TouchableOpacity, Image, Text } from 'react-native';
 import Constants from 'expo-constants';
+import { RectButton } from 'react-native-gesture-handler';
 
 const Detail: React.FC = () => {
   const navigation = useNavigation();
@@ -12,18 +13,31 @@ const Detail: React.FC = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={handleNavigateBack}>
-        <Icon name="arrow-left" size={20} color="#34cb79" />
-      </TouchableOpacity>
+    <>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={handleNavigateBack}>
+          <Icon name="arrow-left" size={20} color="#34cb79" />
+        </TouchableOpacity>
 
-      <Image
-        style={styles.pointImage} source={{ uri: 'https://images.unsplash.com/photo-1580913428023-02c695666d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60' }}
-      />
+        <Image
+          style={styles.pointImage} source={{ uri: 'https://images.unsplash.com/photo-1580913428023-02c695666d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60' }}
+        />
 
-      <Text style={styles.pointName}>Mercadão do seu Zé</Text>
-      <Text style={styles.pointItems}>Lâmpadas, Óleo de Cozinha</Text>
-    </View>
+        <Text style={styles.pointName}>Mercadão do seu Zé</Text>
+        <Text style={styles.pointItems}>Lâmpadas, Óleo de Cozinha</Text>
+
+        <View style={styles.address}>
+          <Text style={styles.addressTitle}>Endereço</Text>
+          <Text style={styles.addressContent}>Rio do Sul, SC</Text>
+        </View>
+      </View>
+      <View style={styles.footer}>
+        <RectButton style={styles.button} onPress={() => {}}>
+          <FontAwesome name="whatsapp" size={20} color="#FFF" />
+          <Text style={styles.buttonText}>Whatsapp</Text>
+        </RectButton>
+      </View>
+    </>
   );
 };
 
@@ -31,7 +45,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 32,
-    paddingTop: 20,
+    paddingTop: 20 + Constants.statusBarHeight,
   },
 
   pointImage: {
