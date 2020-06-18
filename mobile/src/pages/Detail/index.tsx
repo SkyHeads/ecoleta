@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image, Text } from 'react-native';
 import Constants from 'expo-constants';
 
 const Detail: React.FC = () => {
@@ -20,6 +20,9 @@ const Detail: React.FC = () => {
       <Image
         style={styles.pointImage} source={{ uri: 'https://images.unsplash.com/photo-1580913428023-02c695666d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60' }}
       />
+
+      <Text style={styles.pointName}>Mercadão do seu Zé</Text>
+      <Text style={styles.pointItems}>Lâmpadas, Óleo de Cozinha</Text>
     </View>
   );
 };
