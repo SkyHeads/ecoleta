@@ -8,8 +8,6 @@ import { RectButton } from 'react-native-gesture-handler';
 const Detail: React.FC = () => {
   const navigation = useNavigation();
 
-  useEffect(() => {}, []);
-
   function handleNavigateBack() {
     navigation.goBack();
   }
