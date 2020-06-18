@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Feather as Icon, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, TouchableOpacity, Image, Text, SafeAreaView } from 'react-native';
@@ -7,6 +7,8 @@ import { RectButton } from 'react-native-gesture-handler';
 
 const Detail: React.FC = () => {
   const navigation = useNavigation();
+
+  useEffect(() => {}, []);
 
   function handleNavigateBack() {
     navigation.goBack();
