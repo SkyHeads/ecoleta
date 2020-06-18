@@ -36,6 +36,11 @@ const Detail: React.FC = () => {
           <FontAwesome name="whatsapp" size={20} color="#FFF" />
           <Text style={styles.buttonText}>Whatsapp</Text>
         </RectButton>
+
+        <RectButton style={styles.button} onPress={() => {}}>
+          <Icon name="mail" size={20} color="#FFF" />
+          <Text style={styles.buttonText}>E-mail</Text>
+        </RectButton>
       </View>
     </>
   );
