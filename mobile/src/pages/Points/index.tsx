@@ -81,7 +81,12 @@ const Points: React.FC = () => {
           contentContainerStyle={{ paddingHorizontal: 20 }}
         >
           {items.map(item => (
-            <TouchableOpacity key={String(item.id)} style={styles.item} onPress={() => {}}>
+            <TouchableOpacity 
+              key={String(item.id)} 
+              style={styles.item} 
+              onPress={() => {}}
+              activeOpacity={0.6}
+            >
               <SvgUri width={42} height={42} uri={item.image_url}/>
               <Text style={styles.itemTitle}>{item.name}</Text>
             </TouchableOpacity>
