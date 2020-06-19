@@ -6,6 +6,7 @@ import Constants from 'expo-constants';
 import { RectButton } from 'react-native-gesture-handler';
 import api from '../../services/api';
 import * as MailComposer from 'expo-mail-composer';
+import { Linking } from 'expo';
 
 interface RouteParams {
   point_id: number;
@@ -49,6 +50,10 @@ const Detail: React.FC = () => {
     });
   }
 
+  function handleWhatsapp() {
+    Linking.openURL(`whatsapp://send?phone=${data.point.whatsapp}&text=Tenho interesse sobre coleta de resíduos`)
+  }
+
   if (!data.point) {
     return null;
   }
@@ -75,7 +80,7 @@ const Detail: React.FC = () => {
         </View>
       </View>
       <View style={styles.footer}>
-        <RectButton style={styles.button} onPress={() => {}}>
+        <RectButton style={styles.button} onPress={handleWhatsapp}>
           <FontAwesome name="whatsapp" size={20} color="#FFF" />
           <Text style={styles.buttonText}>Whatsapp</Text>
         </RectButton>
