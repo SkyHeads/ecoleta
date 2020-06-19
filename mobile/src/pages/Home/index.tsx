@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
 import { View, Image, StyleSheet, Text, ImageBackground, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 const Home: React.FC = () => {
+  const [uf, setUf] = useState('');
+  const [city, setCity] = useState('');
+
   const navigation = useNavigation();
 
   function handleNavigateToPoints() {
-    navigation.navigate('Points');
+    navigation.navigate('Points', {
+      uf,
+      city,
+    });
   } 
 
   return (
@@ -34,11 +40,19 @@ const Home: React.FC = () => {
           <TextInput
             style={styles.input}
             placeholder="Digite a UF"
+            value={uf}
+            onChangeText={text => setUf(text)}
+            maxLength={2}
+            autoCapitalize="characters"
+            autoCorrect={false}
           />
 
           <TextInput
             style={styles.input}
             placeholder="Digite a Cidade"
+            value={city}
+            onChangeText={text => setCity(text)}
+            autoCorrect={false}
           />
 
           <RectButton style={styles.button} onPress={handleNavigateToPoints}>
