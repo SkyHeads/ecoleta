@@ -1,5 +1,8 @@
 import React, {useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
+import { FiUpload } from 'react-icons/fi';
+
+import './styles.css';
 
 const Dropzone = () => {
   const onDrop = useCallback(acceptedFiles => {
@@ -8,13 +11,13 @@ const Dropzone = () => {
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return (
-    <div {...getRootProps()}>
+    <div className="dropzone" {...getRootProps()}>
       <input {...getInputProps()} />
-      {
-        isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag 'n' drop some files here, or click to select files</p>
-      }
+      <p>
+        <FiUpload />
+        Imagem do estabelecimento
+      </p>
+      
     </div>
   )
 }
