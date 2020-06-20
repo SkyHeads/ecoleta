@@ -104,8 +104,8 @@ class PointsController {
     const { id } = request.params;
 
     await knex('points')
-      .where('points.id', id)
-      .delete()
+      .where({ id })
+      .del()
 
     return response.status(204).json();
   }
